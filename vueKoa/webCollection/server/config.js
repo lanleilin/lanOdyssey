@@ -19,8 +19,8 @@ export default {
         host: 'smtp.126.com',
         port: 465,
         auth: {
-            user: '您的邮箱',
-            pass: '邮箱密码'
+            user: '1906660578@qq.com',
+            pass: 'a231873.1415926'
         }
     }
 }

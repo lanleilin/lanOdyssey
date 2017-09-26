@@ -19,34 +19,35 @@ app.use(json());
 app.use(logger());
 
 const fs = require('fs');
-function writeLog(data){
-    fs.appendFile('./log.txt',data,'utf8',e=>{});
+
+function writeLog(data) {
+    fs.appendFile('./log.txt', data, 'utf8', e => {});
 }
 
-app.use(async (ctx, next)=>{
-	const start = new Date;
-	const result = await routes_obj.verify(ctx);
-	if(typeof result === "object"){
-        ctx.state.userInfo = result;//存储用户信息
-		await next();
-	}else{
-		writeLog('【' + result + '】');
-		ctx.body = {
+app.use(async(ctx, next) => {
+    const start = new Date;
+    const result = await routes_obj.verify(ctx);
+    if (typeof result === "object") {
+        ctx.state.userInfo = result; //存储用户信息
+        await next();
+    } else {
+        writeLog('【' + result + '】');
+        ctx.body = {
             success: false,
-			data:{},
+            data: {},
             message: result
         }
-	}
+    }
     const ms = new Date - start;
     writeLog(ctx.method + ' ' + ctx.url + ' ' + ms + 'ms \r\n');
     console.log('%s %s - %s', ctx.method, ctx.url, ms);
 });
 
-app.on('error', function (err, ctx) {
+app.on('error', function(err, ctx) {
     writeLog('server error' + err + '\n' + JSON.stringify(ctx) + '\r\n');
     ctx.body = {
         success: false,
-        data:ctx,
+        data: ctx,
         message: err
     };
     console.log('server error', err);

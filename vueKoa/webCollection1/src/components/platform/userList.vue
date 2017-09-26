@@ -1,7 +1,7 @@
 <template>
   <el-table
     v-loading="loading"
-    element-loading-text="拼命加载中"
+    element-loading-text="加载中"
     :data="users"
     height="250"
     border>

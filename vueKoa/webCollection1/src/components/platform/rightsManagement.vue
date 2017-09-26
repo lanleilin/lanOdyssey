@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul v-for="menuItem in theModel">
+    <ul v-for="menuItem in theModel" :key="menuItem">
       <my-tree :model="menuItem"></my-tree>
     </ul>
   </div>

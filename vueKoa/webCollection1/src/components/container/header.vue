@@ -108,6 +108,7 @@ a:active {
 
 .navbar-top {
   width: 100%;
+  height: 60px;
 }
 
 .header {
@@ -131,7 +132,9 @@ a:active {
   text-decoration: none;
   vertical-align: middle;
 }
-
+.router-link {
+  color: #999;
+}
 .router-link-active {
   color: lightcoral;
 }

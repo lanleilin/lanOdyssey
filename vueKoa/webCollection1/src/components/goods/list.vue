@@ -1,49 +1,33 @@
 <template>
-  <div>
-    <el-row :gutter="10">
-      <el-col :span="14">
-        <router-link to="/page/goods/management">
-          <el-button type="primary">新增web</el-button>
-        </router-link>
-      </el-col>
-      <el-col :span="10">
-        <el-input
-          placeholder="请输入web名称"
-          icon="search"
-          v-model="searchVal"
-          @keyup.enter.native="handleSearch"
-          :on-icon-click="handleSearch">
-        </el-input>
-      </el-col>
-    </el-row>
+  <div class="container">
+    <div class="banner">
+      <ul>
+        <li>
+          <router-link to="/page/goods/management">
+            <el-button type="primary">新增web</el-button>
+          </router-link>
+        </li>
+        <li>
+          <el-input placeholder="请输入web名称" icon="search" v-model="searchVal" @keyup.enter.native="handleSearch" :on-icon-click="handleSearch">
+          </el-input>
+        </li>
+      </ul>
 
-    <el-table
-      v-loading="loading"
-      element-loading-text="拼命加载中"
-      :data="list"
-      border
-      style="margin:10px 0;">
-      <el-table-column
-        prop="id"
-        label="id">
+    </div>
+
+    <el-table v-loading="loading" element-loading-text="拼命加载中" :data="list" border style="margin:10px 0;">
+      <el-table-column prop="id" label="id">
       </el-table-column>
-      <el-table-column
-        prop="name"
-        label="名称">
+      <el-table-column prop="name" label="名称">
       </el-table-column>
-      <el-table-column
-        prop="description"
-        label="描述">
+      <el-table-column prop="description" label="描述">
       </el-table-column>
-      <el-table-column
-        prop="img"
-        label="图片">
+      <el-table-column prop="img" label="图片">
         <template scope="scope">
           <img v-for="item in myScope[scope.row.id]" :key="item" :src="item">
         </template>
       </el-table-column>
-      <el-table-column
-      label="操作">
+      <el-table-column label="操作">
         <template scope="scope">
           <el-button type="primary" size="small" @click="toEdit(scope.row.id)">编辑</el-button>
           <el-button type="danger" size="small" @click="removeGoodsList(scope.row.id)">删除</el-button>
@@ -52,15 +36,9 @@
       </el-table-column>
     </el-table>
 
-    <el-pagination
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-      :current-page="currentPage"
-      :page-sizes="[5, 6, 7, 8]"
-      :page-size="pageSize"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="total">
+    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage" :page-sizes="[5, 6, 7, 8]" :page-size="pageSize" layout="total, sizes, prev, pager, next, jumper" :total="total">
     </el-pagination>
+  </div>
   </div>
 </template>
 
@@ -90,10 +68,10 @@ export default {
       this.searchVal = goodsName;
 
       return this.$http.post('/goods/list', {
-          currentPage: currentPage,
-          pageSize: pageSize,
-          searchVal: goodsName
-        })
+        currentPage: currentPage,
+        pageSize: pageSize,
+        searchVal: goodsName
+      })
         .then((response) => {
           this.loading = false;
 
@@ -126,16 +104,16 @@ export default {
         type: 'warning'
       }).then(() => {
         return this.$http.delete('/goods/' + id)
-        .then((response) => {
-          if (response.status == 200) {
-            this.getGoodsList();
-            this.$message.success('删除成功！');
-          } else {
-            this.$message.error('删除失败！');
-          }
-        }, (error) => {
-          this.$message.error('网络错误！');
-        });
+          .then((response) => {
+            if (response.status == 200) {
+              this.getGoodsList();
+              this.$message.success('删除成功！');
+            } else {
+              this.$message.error('删除失败！');
+            }
+          }, (error) => {
+            this.$message.error('网络错误！');
+          });
       }).catch(() => {
         this.$message({
           type: 'info',

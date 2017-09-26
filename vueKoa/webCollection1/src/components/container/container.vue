@@ -17,7 +17,6 @@ export default {
 
 <style>
 .page-container {
-  padding: 0 10px;
 }
 .main-layout {
   margin-top: 63px;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-row :gutter="10" class="header navbar-fixed-top">
+    <el-row :gutter="10">
       <el-col :span="14">
         <router-link to="/page/goods/management">
           <el-button type="primary">新增web</el-button>
@@ -47,6 +47,7 @@
         <template scope="scope">
           <el-button type="primary" size="small" @click="toEdit(scope.row.id)">编辑</el-button>
           <el-button type="danger" size="small" @click="removeGoodsList(scope.row.id)">删除</el-button>
+          <!-- <el-button type="primary" size="small">前往</el-button> -->
         </template>
       </el-table-column>
     </el-table>

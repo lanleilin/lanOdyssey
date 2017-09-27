@@ -16,10 +16,8 @@ export default {
 </script>
 
 <style>
-.page-container {
-}
+
 .main-layout {
-  margin-top: 63px;
   padding-top: 10px;
 }
 </style>

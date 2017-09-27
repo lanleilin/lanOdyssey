@@ -100,11 +100,10 @@ textarea {
 
 a {
   text-decoration: none;
+  color:#20a0ff;
 }
 
-a:active {
-  color: red;
-}
+
 
 .navbar-top {
   width: 100%;

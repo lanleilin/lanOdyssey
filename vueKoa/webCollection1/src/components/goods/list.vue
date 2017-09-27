@@ -8,7 +8,7 @@
           </router-link>
         </li>
         <li>
-          <el-input placeholder="请输入web名称" icon="search" v-model="searchVal" @keyup.enter.native="handleSearch" :on-icon-click="handleSearch">
+          <el-input placeholder="请输入web名称" size="small" icon="search" v-model="searchVal" @keyup.enter.native="handleSearch" :on-icon-click="handleSearch">
           </el-input>
         </li>
       </ul>
@@ -139,3 +139,14 @@ export default {
   }
 }
 </script>
+<style scoped>
+ul{
+  margin-bottom: 5px;
+}
+ul>li{
+  list-style: none;
+  width: 40vw;
+  float: left;
+}
+</style>
+

@@ -90,6 +90,9 @@ textarea {
   margin: 0;
   font: inherit;
 }
+.el-button--text {
+  color:#97a8be;
+}
 </style>
 
 <style scoped>
@@ -100,7 +103,7 @@ textarea {
 
 a {
   text-decoration: none;
-  color:#20a0ff;
+  color:#97a8be;
 }
 
 

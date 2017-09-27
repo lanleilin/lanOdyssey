@@ -16,7 +16,9 @@ export default {
 </script>
 
 <style>
-
+.page-container{
+  overflow: hidden;
+}
 .main-layout {
   padding-top: 10px;
 }

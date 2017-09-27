@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    
     <div class="banner">
       <ul>
         <li>
@@ -15,12 +16,18 @@
 
     </div>
 
-    <el-table v-loading="loading" element-loading-text="拼命加载中" :data="list" border style="margin:10px 0;">
+    <el-table :data="list" border style="margin:10px 0;">
       <el-table-column prop="id" label="id">
       </el-table-column>
       <el-table-column prop="name" label="名称">
       </el-table-column>
       <el-table-column prop="description" label="描述">
+      </el-table-column>
+      <el-table-column label="前往">
+        <template scope="scope">
+          <el-button type="primary" size="small"  @click="testlog(scope.row.id)">GO</el-button>
+            <a :href = scope.row.description target="_blank">前往</a>
+        </template>
       </el-table-column>
       <el-table-column prop="img" label="图片">
         <template scope="scope">
@@ -78,7 +85,6 @@ export default {
           if (response.status == 200) {
             this.list = response.data.list;
             this.total = response.data.total;
-
             if (Array.isArray(this.list) && this.list.length) {
               this.list.forEach(function(item, index) {
                 if (item.img_url) {
@@ -135,15 +141,35 @@ export default {
     },
     handleSearch(event) {
       this.getGoodsList();
+    },
+    testlog(id) {
+      console.log('testlog');
+      console.log(id)
+      console.log(this.list)
+      console.log(this.list[1].description)
+      // window.location.href=this.list[1].description
     }
   }
 }
 </script>
+<style>
+.el-button--small {
+  margin: 12px;
+}
+
+tbody {
+  background: none;
+}
+</style>
+
 <style scoped>
-ul{
+ul {
+  width: 100vw;
+  height: 50px;
   margin-bottom: 5px;
 }
-ul>li{
+
+ul>li {
   list-style: none;
   width: 40vw;
   float: left;

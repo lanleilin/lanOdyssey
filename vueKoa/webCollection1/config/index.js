@@ -20,7 +20,7 @@ module.exports = {
     env: require('./dev.env'),
     port: 8080,
     assetsSubDirectory: 'static',
-    assetsPublicPath: './',
+    assetsPublicPath: '',
     proxyTable: {
       '/auth': {
         target: 'http://localhost:9090',

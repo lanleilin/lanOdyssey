@@ -1,4 +1,4 @@
-# vue2.x-koa2.x
+# Odyssey-koa+vue demo
 
 > Vue.js + Koa.js +MySQL demo
 

@@ -1,7 +1,9 @@
 <template>
   <div>
-    <ul v-for="menuItem in theModel" :key="menuItem">
-      <my-tree :model="menuItem"></my-tree>
+    <!-- <ul v-for="m in theModel"  > -->
+    <!-- <ul v-for="menuItem in theModel" :key="menuItem" > -->
+    <!-- <ul v-for="(menuItem, index) in theModel" :key="menuItem.index" > -->
+      <!-- <my-tree :model="m"></my-tree> -->
     </ul>
   </div>
 </template>

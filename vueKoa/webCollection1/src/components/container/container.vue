@@ -20,6 +20,9 @@ export default {
   overflow: hidden;
 }
 .main-layout {
-  padding-top: 10px;
+  /* padding-top: 10px; */
+  position: absolute;
+  top: 60px;
+  width: 100%;
 }
 </style>

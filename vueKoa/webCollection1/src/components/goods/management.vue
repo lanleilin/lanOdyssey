@@ -173,3 +173,22 @@ export default {
   }
 }
 </script>
+<style>
+.el-form-item__label {
+    text-align: center;
+    vertical-align: middle;
+    float: left;
+    font-size: 14px;
+    color: #48576a;
+    line-height: 1;
+    padding: 11px 12px 11px 0;
+    box-sizing: border-box;
+  }
+</style>
+
+<style scoped>
+  form{
+    padding: 25px;
+  }
+
+</style>

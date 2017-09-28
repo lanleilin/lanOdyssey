@@ -1,24 +1,24 @@
 <template>
   <div class="container">
     <div class="header navbar-top">
-      <div class="header-item">
-
+      <div class="header-item" id="item">
         <router-link to="/page/userHome">主页</router-link>
         <router-link to="/page/goods">地址管理</router-link>
         <router-link to="/page/platform">平台管理</router-link>
+            <router-link to="/page/dashboard">dashboard</router-link>
       </div>
-
-      <div class="header-item">
+      <div class="header-item" id="logout">
         <strong>欢迎你，{{ name }}</strong>
         |
         <el-button type="text" @click="logout">退出</el-button>
       </div>
-
     </div>
     <el-menu default-active="2" class="el-menu-vertical-demo pc-hide">
       <el-submenu index="1">
         <template slot="title">
-          <i class="el-icon-message"></i>@lanll</template>
+            <!-- <img class="logo" src="../../assets/img/doge.svg" alt="logo"> -->
+            <img class="logo" :src="logoUrl" alt="logo">
+          @lanll</template>
         <el-menu-item-group>
           <template slot="title">分组一</template>
           <el-menu-item index="1-0">
@@ -39,7 +39,9 @@
         </el-menu-item-group>
         <el-submenu index="1-4">
           <template slot="title">More</template>
-          <el-menu-item index="1-4-1">More</el-menu-item>
+          <el-menu-item index="1-4-1">
+            <router-link to="/page/dashboard">dashboard</router-link>
+          </el-menu-item>
         </el-submenu>
       </el-submenu>
     </el-menu>
@@ -50,6 +52,11 @@
 import jwt from 'jsonwebtoken' // 安装koa-jwt的时候会自动下载这个依赖
 
 export default {
+  data(){
+    return{
+      logoUrl:require("../../assets/img/doge.svg")
+    }
+  },
   created() {
     this.name = this.getUserInfo() && this.getUserInfo().name || '';
   },
@@ -93,6 +100,9 @@ textarea {
 .el-button--text {
   color:#97a8be;
 }
+.router-link-active {
+  color: lightcoral;
+}
 </style>
 
 <style scoped>
@@ -106,7 +116,11 @@ a {
   color:#97a8be;
 }
 
-
+.container{
+  position: fixed;
+  width:100%;
+  z-index: 9999;
+}
 
 .navbar-top {
   width: 100%;
@@ -115,6 +129,8 @@ a {
 
 .header {
   background: lightgray;
+  padding: 0 50px;
+  box-sizing:border-box;
 }
 
 .header-item {
@@ -157,6 +173,16 @@ a {
   .pc-hide {
     display: block;
   }
+  .logo{
+    width:40px;
+  }
 
+}
+#logout{
+  float: right;
+}
+#item{
+  float: left;
+      margin-top: 1.3em;
 }
 </style>

@@ -25,8 +25,8 @@
       </el-table-column>
       <el-table-column label="前往">
         <template scope="scope">
-          <el-button type="primary" size="small"  @click="testlog(scope.row.id)">GO</el-button>
-            <a :href = scope.row.description target="_blank">前往</a>
+          <!-- <el-button type="primary" size="small"  @click="testlog(scope.row.id)">GO</el-button> -->
+            <a class="go" type="primary" :href = scope.row.description target="_blank">前往</a>
         </template>
       </el-table-column>
       <el-table-column prop="img" label="图片">
@@ -157,8 +157,33 @@ export default {
   margin: 12px;
 }
 
-tbody {
-  background: none;
+.el-table .cell {
+    white-space: normal;
+    word-break: break-all;
+    line-height: 24px;
+    max-height: 64px;
+}
+.el-button--small {
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 3px 7px;
+    margin: 0 2px !important;
+}
+.el-button--danger {
+color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+.el-button--primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+.el-pager li.active {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    cursor: default;
 }
 </style>
 
@@ -173,6 +198,15 @@ ul>li {
   list-style: none;
   width: 40vw;
   float: left;
+}
+.go{
+    padding: 5px 7px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px  solid   darkgray;
+    text-decoration:none;
+    background:cadetblue;
+    color:#fff;
 }
 </style>
 

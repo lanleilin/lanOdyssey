@@ -5,7 +5,7 @@
         <router-link to="/page/userHome">主页</router-link>
         <router-link to="/page/goods">地址管理</router-link>
         <router-link to="/page/platform">平台管理</router-link>
-            <router-link to="/page/dashboard">dashboard</router-link>
+        <router-link to="/page/dashboard">dashboard</router-link>
       </div>
       <div class="header-item" id="logout">
         <strong>欢迎你，{{ name }}</strong>
@@ -16,9 +16,9 @@
     <el-menu default-active="2" class="el-menu-vertical-demo pc-hide">
       <el-submenu index="1">
         <template slot="title">
-            <!-- <img class="logo" src="../../assets/img/doge.svg" alt="logo"> -->
-            <img class="logo" :src="logoUrl" alt="logo">
-          @lanll</template>
+          <!-- <img class="logo" src="../../assets/img/doge.svg" alt="logo"> -->
+          <img class="logo" :src="logoUrl" alt="logo"> @lanll
+        </template>
         <el-menu-item-group>
           <template slot="title">分组一</template>
           <el-menu-item index="1-0">
@@ -33,14 +33,13 @@
         </el-menu-item-group>
         <el-menu-item-group title="分组2">
           <el-menu-item index="1-3">
-            <el-button type="text" @click="logout">退出</el-button>
-
+            <router-link to="/page/dashboard">dashboard</router-link>
           </el-menu-item>
         </el-menu-item-group>
         <el-submenu index="1-4">
           <template slot="title">More</template>
           <el-menu-item index="1-4-1">
-            <router-link to="/page/dashboard">dashboard</router-link>
+            <el-button type="text" @click="logout">退出</el-button>
           </el-menu-item>
         </el-submenu>
       </el-submenu>
@@ -52,9 +51,9 @@
 import jwt from 'jsonwebtoken' // 安装koa-jwt的时候会自动下载这个依赖
 
 export default {
-  data(){
-    return{
-      logoUrl:require("../../assets/img/doge.svg")
+  data() {
+    return {
+      logoUrl: require("../../assets/img/doge.svg")
     }
   },
   created() {
@@ -97,9 +96,11 @@ textarea {
   margin: 0;
   font: inherit;
 }
+
 .el-button--text {
-  color:#97a8be;
+  color: #97a8be;
 }
+
 .router-link-active {
   color: lightcoral;
 }
@@ -113,12 +114,12 @@ textarea {
 
 a {
   text-decoration: none;
-  color:#97a8be;
+  color: #97a8be;
 }
 
-.container{
+.container {
   position: fixed;
-  width:100%;
+  width: 100%;
   z-index: 9999;
 }
 
@@ -130,7 +131,7 @@ a {
 .header {
   background: lightgray;
   padding: 0 50px;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 .header-item {
@@ -150,9 +151,11 @@ a {
   text-decoration: none;
   vertical-align: middle;
 }
+
 .router-link {
   color: #999;
 }
+
 .router-link-active {
   color: lightcoral;
 }
@@ -173,16 +176,17 @@ a {
   .pc-hide {
     display: block;
   }
-  .logo{
-    width:40px;
+  .logo {
+    width: 40px;
   }
-
 }
-#logout{
+
+#logout {
   float: right;
 }
-#item{
+
+#item {
   float: left;
-      margin-top: 1.3em;
+  margin-top: 1.3em;
 }
 </style>
